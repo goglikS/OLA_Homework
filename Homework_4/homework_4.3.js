@@ -52,15 +52,19 @@ const videoDetails = (video) =>
 
 
 const getPassedUsersFirstVideoTitle = (user) => {
-    
-    loginUser(user, 1234) 
-    
-    .then((user) => getUserVideos(user.userEmail))
-    .then((videos) => videos.forEach(function (item, index, array) {
-            console.log("video "+index + ": ", item);
-          }))
-    .then(() => console.log("user :",user))
-    .catch((error) => displayError(error));
+  loginUser(user, 1234)
+    .then((obj) => {
+      console.log("user:", obj.userEmail);
+      return getUserVideos(obj.userEmail);
+    })
+    .then((videosObj) => {
+      console.log("videos:", videosObj);
+      return videoDetails(videosObj[0]);
+    })
+    .then((title) => console.log("First Video title:", title))
+    .catch((err) => {
+      displayError(err);
+    });
 };
 
 
