@@ -56,21 +56,21 @@ const getPassedUsersFirstVideoTitle = async (user) => {
     let loggedUser = await loginUser(user, 1234);
     console.log("user : ",loggedUser.userEmail);
     let videos = await getUserVideos(loggedUser.userEmail);
-    console.log ("videos : " + "(" +videos.length+ ")")
-    let VideoTitles = await videos.forEach(function (item, index, array) {
+    let videosList = await getUserVideos(loggedUser.userEmail);
+    console.log("videos:", "(" + videosList.length + ")");
+      videosList.forEach(function (item, index, array) {
         console.log(index + ": ", item);
+        
       });
     let firstVideoTitle = await videoDetails(videos[0]);
-    console.log("First Video's Title is:",firstVideoTitle);
+    console.log("First Video's Title is",firstVideoTitle);
    
     
   } catch (error) {
     displayError(error);
   }
 };
-// getPassedUsersFirstVideoTitle("user4@hw.js");
-// getPassedUsersFirstVideoTitle("user3@hw.js");
-getPassedUsersFirstVideoTitle("user2@hw.js");
+
 // getPassedUsersFirstVideoTitle("user1@hw.js");
 
 console.log("Finish");
