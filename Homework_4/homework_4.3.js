@@ -56,13 +56,19 @@ const getPassedUsersFirstVideoTitle = (user) => {
     loginUser(user, 1234) 
     
     .then((user) => {
-        console.log("user : ",user)
-        return getUserVideos(user.userEmail)})
-    .then((videos) => {
-        console.log("videos: ", videos);
-        return videoDetails(videos[0])
+        console.log("user :",user)
+        return getUserVideos(user.userEmail)
     })
-    .then((title) => console.log(title))
+    .then((videos) => 
+    {   console.log("videos:", "(" + videos.length + ")");
+        videos.forEach(function (item, index, array) {
+            console.log(index + ": ", item);
+          })
+        return videoDetails(videos[0])
+      })
+     .then((title) => console.log("First Video's Title is", title))
+    
+   
     .catch((error) => displayError(error));
 };
 
