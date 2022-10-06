@@ -63,7 +63,7 @@ const getPassedUsersFirstVideoTitle = (user) =>
           videoDetails(
             videos[0],
             (title) => {
-              console.log("title of first video is :", title);
+              console.log("First Video's Title is", title);
             },
             (err) => displayError(err)
           );
@@ -74,9 +74,6 @@ const getPassedUsersFirstVideoTitle = (user) =>
     (err) => displayError(err)
   );
 
-// getPassedUsersFirstVideoTitle("user4@hw.js");
-// getPassedUsersFirstVideoTitle("user3@hw.js");
-// getPassedUsersFirstVideoTitle("user2@hw.js");
-// getPassedUsersFirstVideoTitle("user1@hw.js");
+ getPassedUsersFirstVideoTitle("user1@hw.js");
 
 console.log("Finish");
