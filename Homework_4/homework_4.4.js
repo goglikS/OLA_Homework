@@ -1,6 +1,6 @@
 console.log("Start");
 
-// Creating Promises
+
 const usersDB = {
   "user1@hw.js": [{ title: "video1" }, { title: "video2" }],
   "user2@hw.js": [{ genre: "genre1" }, { genre: "genre1" }],
