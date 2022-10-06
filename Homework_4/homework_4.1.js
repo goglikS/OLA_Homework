@@ -33,7 +33,7 @@ const getPassedUsersFirstVideoTitle = (user) =>
         console.log(index + ": ", item);
       });
       videoDetails(videos[0], (title) => {
-        console.log("title of first video is :", title);
+        console.log("First Video's Title is", title);
       });
     });
   });
