@@ -52,22 +52,21 @@ const videoDetails = (video) =>
 
 
 const getPassedUsersFirstVideoTitle = (user) => {
-  loginUser(user, 1234)
-    .then((obj) => {
-      console.log("user:", obj.userEmail);
-      return getUserVideos(obj.userEmail);
+    
+    loginUser(user, 1234) 
+    
+    .then((user) => {
+        console.log("user : ",user)
+        return getUserVideos(user.userEmail)})
+    .then((videos) => {
+        console.log("videos: ", videos);
+        return videoDetails(videos[0])
     })
-    .then((videosObj) => {
-      console.log("videos:", videosObj);
-      return videoDetails(videosObj[0]);
-    })
-    .then((title) => console.log("First Video title:", title))
-    .catch((err) => {
-      displayError(err);
-    });
+    .then((title) => console.log(title))
+    .catch((error) => displayError(error));
 };
 
 
 getPassedUsersFirstVideoTitle("user1@hw.js");
 
-console.log("Finish");
+console.log("Finish");  
